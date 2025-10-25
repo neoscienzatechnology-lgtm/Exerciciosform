@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>30 Exercícios de Formulários com Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="max-w-5xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-2">30 Exercícios: Formulários com Tailwind CSS</h1>
+    <p class="text-gray-600">Abra a seção desejada no índice para ver o formulário de exemplo. Cada seção contém um formulário pronto para estudar e adaptar.</p>
+  </header>
+
+  <nav class="max-w-5xl mx-auto p-6">
+    <h2 class="text-xl font-semibold mb-3">Índice</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+      <!-- links gerados -->
+      <a href="#ex1" class="text-indigo-600">01 - Contato</a>
+      <a href="#ex2" class="text-indigo-600">02 - Login</a>
+      <a href="#ex3" class="text-indigo-600">03 - Cadastro</a>
+      <a href="#ex4" class="text-indigo-600">04 - Select</a>
+      <a href="#ex5" class="text-indigo-600">05 - Upload</a>
+      <a href="#ex6" class="text-indigo-600">06 - Checkboxes</a>
+      <a href="#ex7" class="text-indigo-600">07 - Radio</a>
+      <a href="#ex8" class="text-indigo-600">08 - Textarea</a>
+      <a href="#ex9" class="text-indigo-600">09 - Telefone</a>
+      <a href="#ex10" class="text-indigo-600">10 - Pesquisa</a>
+      <a href="#ex11" class="text-indigo-600">11 - Inline</a>
+      <a href="#ex12" class="text-indigo-600">12 - Endereço</a>
+      <a href="#ex13" class="text-indigo-600">13 - Disabled/Readonly</a>
+      <a href="#ex14" class="text-indigo-600">14 - Obrigatórios</a>
+      <a href="#ex15" class="text-indigo-600">15 - Datalist</a>
+      <a href="#ex16" class="text-indigo-600">16 - Slider</a>
+      <a href="#ex17" class="text-indigo-600">17 - Cor</a>
+      <a href="#ex18" class="text-indigo-600">18 - Multi-step</a>
+      <a href="#ex19" class="text-indigo-600">19 - Input-group</a>
+      <a href="#ex20" class="text-indigo-600">20 - Pattern (CPF)</a>
+      <a href="#ex21" class="text-indigo-600">21 - Data/Hora</a>
+      <a href="#ex22" class="text-indigo-600">22 - Preview imagem</a>
+      <a href="#ex23" class="text-indigo-600">23 - Mostrar senha</a>
+      <a href="#ex24" class="text-indigo-600">24 - Floating label</a>
+      <a href="#ex25" class="text-indigo-600">25 - Cartão</a>
+      <a href="#ex26" class="text-indigo-600">26 - Aceitar termos</a>
+      <a href="#ex27" class="text-indigo-600">27 - Reset</a>
+      <a href="#ex28" class="text-indigo-600">28 - Acessível</a>
+      <a href="#ex29" class="text-indigo-600">29 - Responsivo</a>
+      <a href="#ex30" class="text-indigo-600">30 - Envio via Fetch</a>
+    </div>
+  </nav>
+
+  <main class="max-w-5xl mx-auto p-6 space-y-8">
+
+    <!-- 1 -->
+    <section id="ex1" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">01 - Formulário de contato</h3>
+      <p class="text-sm text-gray-600 mb-4">Nome, email e mensagem.</p>
+      <form class="max-w-md">
+        <label class="block mb-2">Nome
+          <input name="nome" class="w-full border rounded px-3 py-2" placeholder="Seu nome">
+        </label>
+        <label class="block mb-2">Email
+          <input name="email" type="email" class="w-full border rounded px-3 py-2" placeholder="email@exemplo.com">
+        </label>
+        <label class="block mb-4">Mensagem
+          <textarea name="mensagem" class="w-full border rounded px-3 py-2" rows="4"></textarea>
+        </label>
+        <button class="bg-indigo-600 text-white px-4 py-2 rounded">Enviar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"></p><strong>Dica:</strong> Use <code>type="email"</code> e o atributo <code>required</code> para validação básica; coloque labels claros e um <code>textarea</code> para a mensagem.</p>
+    </section>
+
+    <!-- 2 -->
+    <section id="ex2" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">02 - Formulário de login</h3>
+      <form class="max-w-sm">
+        <label class="block mb-2">Email
+          <input name="login_email" type="email" required class="w-full border rounded px-3 py-2">
+        </label>
+        <label class="block mb-4">Senha
+          <input name="login_senha" type="password" required class="w-full border rounded px-3 py-2">
+        </label>
+        <div class="flex items-center justify-between">
+          <button class="bg-green-600 text-white px-4 py-2 rounded">Entrar</button>
+          <a href="#" class="text-sm text-indigo-600">Esqueci a senha</a>
+        </div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Para login, adicione <code>autocomplete="username"</code> e <code>autocomplete="current-password"</code>; considere <code>autofocus</code> no primeiro campo.</p>
+    </section>
+
+    <!-- 3 -->
+    <section id="ex3" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">03 - Formulário de cadastro</h3>
+      <form class="max-w-md">
+        <input name="cad_nome" placeholder="Nome" class="w-full border rounded px-3 py-2 mb-3">
+        <input name="cad_email" type="email" placeholder="Email" class="w-full border rounded px-3 py-2 mb-3">
+        <input name="cad_senha" type="password" placeholder="Senha" class="w-full border rounded px-3 py-2 mb-3">
+        <input name="cad_confirmar" type="password" placeholder="Confirmar senha" class="w-full border rounded px-3 py-2 mb-4">
+        <button class="w-full bg-indigo-600 text-white py-2 rounded">Cadastrar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Verifique a confirmação de senha via JS e mostre feedback quando as senhas não coincidirem; valide força mínima com <code>pattern</code> se desejar.</p>
+    </section>
+
+    <!-- 4 -->
+    <section id="ex4" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">04 - Select com optgroups</h3>
+      <form class="max-w-md">
+        <label>Categoria
+          <select name="categoria" class="w-full border rounded px-3 py-2">
+            <option disabled selected>Escolha...</option>
+            <optgroup label="Tecnologia">
+              <option value="frontend">Frontend</option>
+              <option value="backend">Backend</option>
+            </optgroup>
+            <optgroup label="Design">
+              <option value="ui">UI</option>
+            </optgroup>
+          </select>
+        </label>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use um <code>&lt;option disabled selected&gt;</code> como placeholder e agrupe opções com <code>&lt;optgroup&gt;</code> para melhor organização.</p>
+    </section>
+
+    <!-- 5 -->
+    <section id="ex5" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">05 - Upload de arquivo</h3>
+      <form class="max-w-sm">
+        <label class="block mb-2">Escolher arquivo
+          <input name="arquivo" type="file" class="block w-full text-sm text-gray-700">
+        </label>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded">Enviar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use o atributo <code>accept="image/*"</code> ou outros tipos; exiba o nome/preview do arquivo com JS (FileReader).</p>
+    </section>
+
+    <!-- 6 -->
+    <section id="ex6" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">06 - Checkboxes (preferências)</h3>
+      <form class="max-w-md">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <label class="flex items-center"><input type="checkbox" name="newsletter" class="mr-2">Receber newsletter</label>
+          <label class="flex items-center"><input type="checkbox" name="promocoes" class="mr-2">Promoções</label>
+          <label class="flex items-center"><input type="checkbox" name="atualizacoes" class="mr-2">Atualizações</label>
+        </div>
+        <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded">Salvar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Para enviar várias opções, use nomes de campo como <code>name="opcoes[]"</code>; agrupe visualmente com grid ou flex.</p>
+    </section>
+
+    <!-- 7 -->
+    <section id="ex7" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">07 - Radio buttons (fieldset)</h3>
+      <form class="max-w-sm">
+        <fieldset class="mb-3">
+          <legend class="font-medium mb-2">Gênero</legend>
+          <label class="flex items-center"><input type="radio" name="genero" value="m" class="mr-2">Masculino</label>
+          <label class="flex items-center"><input type="radio" name="genero" value="f" class="mr-2">Feminino</label>
+          <label class="flex items-center"><input type="radio" name="genero" value="o" class="mr-2">Outro</label>
+        </fieldset>
+        <button class="bg-indigo-600 text-white px-4 py-2 rounded">Enviar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use <code>&lt;fieldset&gt;</code> e <code>&lt;legend&gt;</code> para acessibilidade; todos os radios devem compartilhar o mesmo <code>name</code>.</p>
+    </section>
+
+    <!-- 8 -->
+    <section id="ex8" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">08 - Textarea autoexpandível (estrutura)</h3>
+      <form class="max-w-md">
+        <label>Comentário
+          <textarea name="comentario" rows="3" class="w-full border rounded px-3 py-2" placeholder="Escreva..."></textarea>
+        </label>
+        <button class="mt-3 bg-indigo-600 text-white px-4 py-2 rounded">Enviar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Para autoexpandir, ajuste a altura via JS no evento <code>input</code> (setar <code>style.height = 'auto'</code> e depois <code>style.height = scrollHeight + 'px'</code>).</p>
+    </section>
+
+    <!-- 9 -->
+    <section id="ex9" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">09 - Telefone (input type=tel)</h3>
+      <form class="max-w-sm">
+        <label>Telefone
+          <input name="telefone" type="tel" pattern="[\d\s()+-]+" placeholder="(99) 99999-9999" class="w-full border rounded px-3 py-2">
+        </label>
+        <button class="mt-3 bg-green-600 text-white px-4 py-2 rounded">Confirmar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use <code>inputmode="tel"</code> e <code>maxlength</code> para melhorar a experiência em celulares; combine com um <code>pattern</code> para validação.</p>
+    </section>
+
+    <!-- 10 -->
+    <section id="ex10" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">10 - Barra de pesquisa</h3>
+      <form class="max-w-lg flex">
+        <input name="q" placeholder="Pesquisar..." class="flex-1 border rounded-l px-3 py-2">
+        <button class="bg-indigo-600 text-white px-4 rounded-r">🔍</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Para buscas, use <code>method="get"</code> se quiser ver a query na URL; adicione <code>role="search"</code> para acessibilidade.</p>
+    </section>
+
+    <!-- 11 -->
+    <section id="ex11" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">11 - Campos inline (horizontal)</h3>
+      <form class="max-w-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+          <label class="sm:w-1/4">Nome
+            <input name="inline_nome" class="w-full border rounded px-3 py-2">
+          </label>
+          <label class="sm:w-1/4">Email
+            <input name="inline_email" type="email" class="w-full border rounded px-3 py-2">
+          </label>
+          <button class="bg-indigo-600 text-white px-4 py-2 rounded">OK</button>
+        </div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Quando alinhar campos horizontalmente, mantenha labels visíveis ou use <code>sr-only</code> para oferecer contexto aos leitores de tela.</p>
+    </section>
+
+    <!-- 12 -->
+    <section id="ex12" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">12 - Grupo de endereços (grid)</h3>
+      <form class="max-w-2xl">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <input name="cep" placeholder="CEP" class="border rounded px-3 py-2">
+          <input name="rua" placeholder="Rua" class="border rounded px-3 py-2 sm:col-span-2">
+          <input name="numero" placeholder="Número" class="border rounded px-3 py-2">
+        </div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use atributos de autocomplete como <code>autocomplete="postal-code"</code> e <code>autocomplete="street-address"</code> para acelerar preenchimento automático.</p>
+    </section>
+
+    <!-- 13 -->
+    <section id="ex13" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">13 - Disabled e readonly</h3>
+      <form class="max-w-sm">
+        <input value="Campo desabilitado" disabled class="w-full border rounded px-3 py-2 mb-3 bg-gray-100">
+        <input value="Somente leitura" readonly class="w-full border rounded px-3 py-2">
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Campos <code>disabled</code> não são enviados no formulário; <code>readonly</code> é enviado mas não editável. Estilize para ficar claro ao usuário.</p>
+    </section>
+
+    <!-- 14 -->
+    <section id="ex14" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">14 - Campos obrigatórios</h3>
+      <form class="max-w-md">
+        <label class="block">Nome*<input name="req_nome" required class="w-full border rounded px-3 py-2"></label>
+        <label class="block mt-3">Email*<input name="req_email" type="email" required class="w-full border rounded px-3 py-2"></label>
+        <button class="mt-4 bg-red-600 text-white px-4 py-2 rounded">Enviar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use <code>required</code> em campos essenciais e combine com <code>aria-invalid</code> e mensagens de ajuda para acessibilidade.</p>
+    </section>
+
+    <!-- 15 -->
+    <section id="ex15" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">15 - Datalist (sugestões)</h3>
+      <form class="max-w-sm">
+        <input name="cidade" list="cidades" placeholder="Escolha cidade" class="w-full border rounded px-3 py-2">
+        <datalist id="cidades">
+          <option>Lisboa</option>
+          <option>Porto</option>
+          <option>Coimbra</option>
+          <option>Faro</option>
+          <option>Braga</option>
+        </datalist>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> <code>&lt;datalist&gt;</code> sugere valores, mas não valida — combine com <code>pattern</code> se precisar validar o formato.</p>
+    </section>
+
+    <!-- 16 -->
+    <section id="ex16" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">16 - Slider (range)</h3>
+      <form class="max-w-sm">
+        <label class="block mb-2">Avaliação
+          <input name="avaliacao" type="range" min="0" max="10" class="w-full">
+        </label>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Mostre o valor atual do range em texto próximo ao slider; defina <code>min</code>, <code>max</code> e passos claros (<code>step</code>).</p>
+    </section>
+
+    <!-- 17 -->
+    <section id="ex17" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">17 - Seletor de cor</h3>
+      <form class="max-w-sm">
+        <label>Cor favorita
+          <input name="cor" type="color" value="#2563eb" class="w-16 h-10 p-0 border rounded">
+        </label>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use o seletor de cor para UX rápida; exiba o valor HEX ao lado para referencia e compatibilidade com CSS.</p>
+    </section>
+
+    <!-- 18 -->
+    <section id="ex18" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">18 - Multi-step (estrutura)</h3>
+      <form class="max-w-lg">
+        <div class="mb-4">Etapa 1: <div class="p-3 border rounded">Campos da etapa 1</div></div>
+        <div class="mb-4">Etapa 2: <div class="p-3 border rounded">Campos da etapa 2</div></div>
+        <div class="mb-4">Etapa 3: <div class="p-3 border rounded">Revisão</div></div>
+        <div class="flex gap-2"><button class="bg-gray-300 px-3 py-2 rounded">Voltar</button><button class="bg-indigo-600 text-white px-3 py-2 rounded">Próximo</button></div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Para multi-step real, mantenha o estado em JS (ou em múltiplos forms) e adicione uma barra de progresso para orientar o usuário.</p>
+    </section>
+
+    <!-- 19 -->
+    <section id="ex19" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">19 - Input-group (ícone + input)</h3>
+      <form class="max-w-sm">
+        <div class="flex items-center border rounded overflow-hidden">
+          <span class="px-3 bg-gray-100">📞</span>
+          <input name="telefone2" placeholder="Telefone" class="flex-1 px-3 py-2">
+        </div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Marque ícones como <code>aria-hidden="true"</code> se forem decorativos; sempre forneça um label/placeholder claro.</p>
+    </section>
+
+    <!-- 20 -->
+    <section id="ex20" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">20 - Validação por pattern (CPF)</h3>
+      <form class="max-w-sm">
+        <label>CPF
+          <input name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: 000.000.000-00" placeholder="000.000.000-00" class="w-full border rounded px-3 py-2">
+        </label>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use <code>inputmode="numeric"</code> e um <code>title</code> claro; para alta confiabilidade, valide CPF no servidor.</p>
+    </section>
+
+    <!-- 21 -->
+    <section id="ex21" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">21 - Agendamento (datetime-local)</h3>
+      <form class="max-w-sm">
+        <label>Agendar
+          <input name="agendamento" type="datetime-local" class="w-full border rounded px-3 py-2">
+        </label>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> A aparência de <code>datetime-local</code> varia entre navegadores; considere normalizar datas no backend e avisar sobre fuso horário.</p>
+    </section>
+
+    <!-- 22 -->
+    <section id="ex22" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">22 - Preview de imagem (estrutura)</h3>
+      <form class="max-w-sm">
+        <input name="imgfile" type="file" accept="image/*" class="mb-3">
+        <div class="w-40 h-40 bg-gray-100 rounded flex items-center justify-center">Preview</div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use <code>FileReader</code> para criar um dataURL e mostrar a imagem no container; valide o tamanho e tipo do arquivo.</p>
+    </section>
+
+    <!-- 23 -->
+    <section id="ex23" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">23 - Mostrar/Ocultar senha (estrutura)</h3>
+      <form class="max-w-sm">
+        <div class="relative">
+          <input name="senha_toggle" type="password" placeholder="Senha" class="w-full border rounded px-3 py-2">
+          <button type="button" class="absolute right-2 top-2 text-sm">Mostrar</button>
+        </div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Ao implementar o toggle, altere o atributo <code>type</code> entre <code>password</code> e <code>text</code> e atualize <code>aria-pressed</code> no botão.</p>
+    </section>
+
+    <!-- 24 -->
+    <section id="ex24" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">24 - Floating label (estrutura)</h3>
+      <form class="max-w-sm">
+        <label class="relative block">
+          <input placeholder=" " class="w-full border rounded px-3 py-4 peer">
+          <span class="absolute left-3 top-2 text-gray-500 peer-focus:scale-75">Nome</span>
+        </label>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Use as classes <code>peer</code> e utilitários como <code>peer-focus</code> do Tailwind para implementar floating labels sem JS.</p>
+    </section>
+
+    <!-- 25 -->
+    <section id="ex25" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">25 - Formulário em cartão</h3>
+      <form class="max-w-lg bg-white p-8 rounded-xl shadow-lg">
+        <input name="assunto" placeholder="Assunto" class="w-full border rounded px-3 py-2 mb-3">
+        <textarea name="detalhes" placeholder="Detalhes" class="w-full border rounded px-3 py-2 mb-3"></textarea>
+        <button class="bg-indigo-600 text-white px-4 py-2 rounded">Enviar</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Um cartão deve ter padding generoso e uma sombra suave (<code>shadow-lg</code>); mantenha o foco dos inputs visível.</p>
+    </section>
+
+    <!-- 26 -->
+    <section id="ex26" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">26 - Aceitar termos antes do submit</h3>
+      <form class="max-w-sm">
+        <label class="flex items-center"><input type="checkbox" name="aceita" class="mr-2">Li e aceito os termos</label>
+        <button class="mt-3 bg-indigo-600 text-white px-4 py-2 rounded">Criar conta</button>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Torne o checkbox obrigatório (<code>required</code>) ou desabilite o botão até que seja marcado para garantir conformidade com termos.</p>
+    </section>
+
+    <!-- 27 -->
+    <section id="ex27" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">27 - Botão reset</h3>
+      <form class="max-w-sm">
+        <input name="reset_nome" placeholder="Nome" class="w-full border rounded px-3 py-2 mb-3">
+        <div class="flex gap-2">
+          <button type="reset" class="bg-gray-300 px-4 py-2 rounded">Limpar</button>
+          <button class="bg-indigo-600 text-white px-4 py-2 rounded">Enviar</button>
+        </div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> O botão <code>reset</code> restaura os valores iniciais: use-o com cuidado se preferir limpar apenas campos específicos via JS.</p>
+    </section>
+
+    <!-- 28 -->
+    <section id="ex28" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">28 - Formulário acessível</h3>
+      <form class="max-w-md">
+        <label class="block">Nome
+          <input name="a11y_nome" aria-label="Nome completo" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        </label>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Vincule labels com <code>for</code> e <code>id</code>, use <code>aria-describedby</code> para mensagens de ajuda e garanta estados de foco visíveis.</p>
+    </section>
+
+    <!-- 29 -->
+    <section id="ex29" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">29 - Layout responsivo (mobile-first)</h3>
+      <form class="p-4 max-w-3xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <input name="resp_nome" placeholder="Nome" class="border rounded px-3 py-2">
+          <input name="resp_sobrenome" placeholder="Sobrenome" class="border rounded px-3 py-2">
+          <input name="resp_email" placeholder="Email" class="border rounded px-3 py-2 md:col-span-2">
+        </div>
+      </form>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> Siga a estratégia mobile-first: estilize para telas pequenas e depois adicione <code>md:</code>/<code>lg:</code> modificadores para desktop.</p>
+    </section>
+
+    <!-- 30 -->
+    <section id="ex30" class="bg-white p-6 rounded shadow">
+      <h3 class="text-2xl font-semibold mb-2">30 - Envio via Fetch (estrutura)</h3>
+      <form id="ajaxForm" data-endpoint="/api/enviar" class="max-w-md">
+        <input name="nome_ajax" placeholder="Nome" class="w-full border rounded px-3 py-2 mb-3">
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Enviar via Fetch</button>
+      </form>
+      <p class="text-sm text-gray-500 mt-2">(Implemente o JS para interceptar o submit e enviar com fetch.)</p>
+      <p class="text-sm text-gray-600 mt-3"><strong>Dica:</strong> No JS, faça <code>event.preventDefault()</code>, use <code>new FormData(form)</code> e envie com <code>fetch</code>; trate erros e mostre feedback ao usuário.</p>
+    </section>
+
+  </main>
+
+  <footer class="max-w-5xl mx-auto p-6 text-sm text-gray-600">
+    Arquivo gerado: 30 exercícios de formulários com Tailwind — abra este arquivo no navegador para ver os exemplos.
+  </footer>
+</body>
+</html>
